@@ -21,7 +21,7 @@ class MyElement extends LitElement {
         // Firebase.popup()
     }
 
-    _render({ canvas }) {
+    _render() {
         return html`
         <canvas id="canvas"></canvas><br>
 
