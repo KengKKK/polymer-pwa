@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>QR-Code</title>
+
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-auth.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyA97t6_xigMI0Nwq-76B9pLWT2zNG98XyI",
+            authDomain: "project-register-5392e.firebaseapp.com",
+            databaseURL: "https://project-register-5392e.firebaseio.com",
+            projectId: "project-register-5392e",
+            storageBucket: "project-register-5392e.appspot.com",
+            messagingSenderId: "1017231028597"
+        }
+
+        firebase.initializeApp(config);
+        var provider = new firebase.auth.GoogleAuthProvider()
+
+        window.Firebase = new class {
+            popup() {
+
+                firebase.auth().signInWithPopup(provider).then(function (result) {
+                    // This gives you a Google Access Token.
+                    var token = result.credential.accessToken
+                    // The signed-in user info.
+                    var user = result.user
+                })
+
+            }
+        } -->
+
+    </script>
+
+    <!-- open api QR-Code -->
+    <script src="/node_modules/qrcode/build/qrcode.min.js"></script>
+</head>
+
+<body>
+
+    <my-element></my-element>
+    <script type="module" src="/src/my-app.js"></script>
+
+</body>
+
+</html>
