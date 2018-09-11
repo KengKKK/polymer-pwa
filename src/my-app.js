@@ -1,8 +1,16 @@
 import { LitElement, html } from '@polymer/lit-element';
-//import QRCode from 'qrcode'
 
+import '@polymer/app-layout/app-drawer/app-drawer.js';
+import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';
+import '@polymer/app-layout/app-header/app-header.js';
+import '@polymer/app-layout/app-toolbar/app-toolbar.js';
 
-class MyElement extends LitElement {
+import '@polymer/iron-selector/iron-selector.js'
+import '@vaadin/vaadin-button/vaadin-button.js';
+
+import './register/view-register.js'
+import { SharedStyles } from './shared-styles.js';
+class MyApp extends LitElement {
 
 
 
@@ -14,55 +22,49 @@ class MyElement extends LitElement {
 
     constructor() {
         super();
-        this.test = "superK";
     }
 
-    _firstRendered() {
-        // Firebase.popup()
-    }
+   
 
     _render() {
         return html`
-        <canvas id="canvas"></canvas><br>
+        ${SharedStyles}
 
-        <button on-click="${(e) => this._testCanvas(e)}">to Canvas</button>
-        <button on-click="${(e) => this._testDataURL(e)}">to DataURL</button>
-        <button on-click="${(e) => this._testString(e)}">to String</button>
 
-        <input type="text" id="data"></input>
-        <button on-click="${(e) => this._genText(e)}">>Get QR-Code</button>
+
+        <app-drawer-layout>
+        
+        <app-drawer slot="drawer">
+            drawer content
+        </app-drawer>
+
+        <app-header-layout>
+        <app-header class="blueHeader">
+        <app-toolbar top-item>
+          <paper-icon-button icon="menu"></paper-icon-button>
+          <div id="account-bar"main-title>Smart Register</div>
+          <div class="account-menu">
+          <paper-icon-button icon="event"></paper-icon-button>
+          <paper-icon-button icon="subdirectory-arrow-right"></paper-icon-button>
+          </div>                   
+        </app-toolbar>
+      </app-header>
+
+        <div>
+        <form-register></form-register>
+        </div>
+
+      </app-header-layout>
+      </app-drawer-layout>
+
+
+
+    
+
         `
     }
-    //ok
-    _genText(){
-        var canvas = this.shadowRoot.querySelector('#canvas')
-        var data =  this.shadowRoot.querySelector('#data').value
-        QRCode.toCanvas(canvas, data, { scale: 10 }, function (error) {
-            if (error) console.error(error)
-            console.log('success!');
-        })
-    }
-    _testCanvas() {
-        var canvas = this.shadowRoot.querySelector('#canvas')
-        QRCode.toCanvas(canvas, '5802041610011', { scale: 10 }, function (error) {
-            if (error) console.error(error)
-            console.log('success!');
-        })
-    }
-    _testDataURL() {
-          QRCode.toDataURL(this.test, { scale: 10 },function (err, url) {
-            console.log(url)
-          })
-    }
-    //ok
-    _testString() {
-        QRCode.toString('5802041610011', function (err, string) {
-            if (err) throw err
-            console.log(string)
-          })
-    }
-
+  
 
 }
 
-customElements.define('my-element', MyElement);
+customElements.define('my-app', MyApp);

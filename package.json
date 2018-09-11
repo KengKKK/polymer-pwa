@@ -5,7 +5,25 @@
   "main": "index.js",
   "dependencies": {
     "@polymer/lit-element": "^0.5.2",
-    "qrcode": "^1.2.2"
+    "qrcode": "^1.2.2",
+    "@polymer/app-layout": "^3.0.0-pre.21",
+    "@polymer/iron-icons": "^3.0.0-pre.21",
+    "@polymer/iron-selector": "^3.0.0-pre.21",
+    "@polymer/paper-icon-button": "^3.0.0-pre.21",
+    "@polymer/paper-input": "^3.0.0-pre.21",
+    "@polymer/paper-progress": "^3.0.0-pre.21",
+    "@polymer/paper-toggle-button": "^3.0.0-pre.21",
+    "@vaadin/vaadin-button": "^2.1.0-alpha2",
+    "@vaadin/vaadin-combo-box": "^4.1.0",
+    "@vaadin/vaadin-confirm-dialog": "github:vaadin/vaadin-confirm-dialog",
+    "@vaadin/vaadin-dialog": "^2.1.0-alpha2",
+    "@vaadin/vaadin-dropdown-menu": "^1.1.0",
+    "@vaadin/vaadin-form-layout": "^2.1.0",
+    "@vaadin/vaadin-grid": "^5.1.0-alpha2",
+    "@vaadin/vaadin-item": "^2.1.0",
+    "@vaadin/vaadin-list-box": "^1.1.0",
+    "@vaadin/vaadin-ordered-layout": "^1.1.0-alpha3",
+    "@webcomponents/webcomponentsjs": "^2.0.0"
   },
   "devDependencies": {},
   "scripts": {
