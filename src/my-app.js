@@ -1,6 +1,7 @@
 import { LitElement, html } from '@polymer/lit-element';
 
 import '@polymer/app-layout/app-drawer/app-drawer.js';
+import '@polymer/app-layout/app-header-layout/app-header-layout.js'
 import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';
 import '@polymer/app-layout/app-header/app-header.js';
 import '@polymer/app-layout/app-toolbar/app-toolbar.js';
@@ -29,37 +30,59 @@ class MyApp extends LitElement {
     _render() {
         return html`
         ${SharedStyles}
+        <style>
 
+        </style>
 
-
-        <app-drawer-layout>
-        
-        <app-drawer slot="drawer">
-            drawer content
-        </app-drawer>
 
         <app-header-layout>
-        <app-header class="blueHeader">
-        <app-toolbar top-item>
-          <paper-icon-button icon="menu"></paper-icon-button>
-          <div id="account-bar"main-title>Smart Register</div>
-          <div class="account-menu">
-          <paper-icon-button icon="event"></paper-icon-button>
-          <paper-icon-button icon="subdirectory-arrow-right"></paper-icon-button>
-          </div>                   
-        </app-toolbar>
-      </app-header>
+        <app-header class="blueHeader" waterfall fixed slot="header" >
+          <app-toolbar top-item>
+            <paper-icon-button icon="polymer"></paper-icon-button>
+            <div  main-title>Smart Register</div>
+            <div class="account-menu">
+            <paper-icon-button icon="event"></paper-icon-button>
+            <paper-icon-button icon="subdirectory-arrow-right"></paper-icon-button>
+            </div>                   
+          </app-toolbar>
+        </app-header>
 
-        <div>
-        <form-register></form-register>
-        </div>
+        <app-drawer-layout>
+          <!-- App drawer -->
+        <app-drawer slot="drawer" position="left" persistent opened class="app-drawer">
+              <app-toolbar class="nav-tool"> 
+                
+              </app-toolbar>
 
-      </app-header-layout>
-      </app-drawer-layout>
+               <h3>Menu</h3>
+                    <paper-item>
 
+                    <paper-icon-item class="iconItem" role="option" tabindex="0" aria-disabled="false">
+                        <iron-icon class="grayIcon" icon="inbox" slot="item-icon"></iron-icon>
+                        <span>Option Name</span>
+                    </paper-icon-item>
 
+                    <paper-icon-item class="iconItem" role="option" tabindex="0" aria-disabled="false">
+                        <iron-icon class="grayIcon" icon="inbox" slot="item-icon"></iron-icon>
+                        <span>Option Name</span>
+                    </paper-icon-item>
 
-    
+                    <paper-icon-item class="iconItem" role="option" tabindex="0" aria-disabled="false">
+                        <iron-icon class="grayIcon" icon="inbox" slot="item-icon"></iron-icon>
+                        <span>Option Name</span>
+                    </paper-icon-item>
+                  
+                    </paper-item>
+        </app-drawer>
+
+                        <!-- Main content -->
+                    <main role="main" class="main-content">
+                        <div class="form-register">
+                            <form-register></form-register>
+                        </div>
+                    </main>
+  </app-drawer-layout>
+  </app-header-layout>
 
         `
     }

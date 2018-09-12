@@ -20,9 +20,10 @@ class FormRegister extends PolymerElement {
         return html`
 
 
-        
+        <center>
             <vaadin-text-field required  error-message="กรุณาใส่ชื่อ" label="ชื่อจริง (ระบุคำนำหน้าด้วย)" style="width:20em"
             name="fname" on-input="_valueChanged" value="[[data.fname]]"></vaadin-text-field>
+        <br>
         <vaadin-text-field required  error-message="กรุณาใส่นามสกุล" label="นามสกุล" style="width:20em"
             name="lname" on-input="_valueChanged" value="[[data.lname]]"></vaadin-text-field>
         <br>
@@ -47,13 +48,13 @@ class FormRegister extends PolymerElement {
             </vaadin-list-box>
         </template>
         </vaadin-dropdown-menu>
+        <br>
         <vaadin-text-field required  label="สาขา/หน่วยงาน" style="width:20em"
         name="dep" on-input="_valueChanged" value="[[data.dep]]"></vaadin-text-field>
-        <hr>
-        <center>
+        <br>
+        <hr style="width:25%">
             <vaadin-button on-click="Submit">Submit</vaadin-button>
         </center>
- 
             `
     }
 
