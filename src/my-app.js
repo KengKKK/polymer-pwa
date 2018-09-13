@@ -37,7 +37,8 @@ class MyApp extends connect(store)(LitElement) {
     static get properties() {
         return {
             _drawerOpened: Boolean,
-            _page: String
+            _page: String,
+            appTitle: String
         };
     }
 
@@ -56,7 +57,7 @@ class MyApp extends connect(store)(LitElement) {
 
 
 
-    _render({_drawerOpened,_page}) {
+    _render({_page}) {
         return html`
         ${SharedStyles}
 <style>
@@ -85,44 +86,38 @@ class MyApp extends connect(store)(LitElement) {
         <app-drawer slot="drawer" position="left" persistent class="app-drawer">
             <app-toolbar class="nav-tool"></app-toolbar>
             <h3>Menu</h3>
-
-            <a selected?="${_page === 'view1'}" href="/view1">test</a>
-            <a selected?="${_page === 'qrcode'}" href="/qrcode">register</a>
-            
-            <paper-item>
-                <paper-icon-item class="iconItem" role="option" tabindex="0" aria-disabled="false" on-click="${(e) => this._nav1(e)}">
+      
+        
+            <a selected?="${_page === 'view1'}" href="/view1"><paper-icon-item class="iconItem" href="/view1" role="option" >
                     <iron-icon class="grayIcon" icon="inbox" slot="item-icon"></iron-icon>
                     <span class="nav-tool">Board Event</span>
-                    
                 </paper-icon-item>
-                
-                <paper-icon-item class="iconItem" role="option" tabindex="0" aria-disabled="false">
-                    <iron-icon class="grayIcon" icon="inbox" slot="item-icon"></iron-icon>
-                    <span class="font-thai">ตรวจสอบรายชื่อ</span>
-                </paper-icon-item>
+            </a>
 
-                <paper-icon-item class="iconItem" role="option" tabindex="0" aria-disabled="false">
+
+            <a selected?="${_page === 'viewRegister'}" href="/viewRegister">
+            <paper-icon-item class="iconItem" href="/view1" role="option" >
                     <iron-icon class="grayIcon" icon="inbox" slot="item-icon"></iron-icon>
-                    <span>Option Name</span>
+                    <span class="nav-tool">Check</span>
                 </paper-icon-item>
-            </paper-item>
+            </a>
 
         </app-drawer>
 
         <!-- Main content -->
         <main role="main" class="main-content">
+            <div class="bg-content">
                 <my-view1 class="page" active?="${_page === 'view1'}"></my-view1>
-                <view-register class="page" active?="${_page === 'qrcode'}"></view-register>
+                <view-register class="page" active?="${_page === 'viewRegister'}"></view-register>
+
+            </div>
         </main>
 
     </app-drawer-layout>
 </app-header-layout>
 `
     }
-  
-    _nav1(e){
-        console.log("eiei",e)
-    }
+
 
 
     _didRender(properties, changeList) {

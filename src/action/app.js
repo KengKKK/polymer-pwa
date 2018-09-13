@@ -25,7 +25,7 @@ const loadPage = (page) => (dispatch) => {
         // navigating to view1 after my-view1.js is loaded.
       });
       break;
-    case 'qrcode':
+    case 'viewRegister':
       import('../component/view-register.js');
       break;
     // case 'view3':
