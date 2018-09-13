@@ -57,14 +57,14 @@ class MyApp extends LitElement {
                <h3>Menu</h3>
                     <paper-item>
 
-                    <paper-icon-item class="iconItem" role="option" tabindex="0" aria-disabled="false">
+                    <paper-icon-item class="iconItem" role="option" tabindex="0" aria-disabled="false" on-click="${(e) => this._nav1(e)}">
                         <iron-icon class="grayIcon" icon="inbox" slot="item-icon"></iron-icon>
-                        <span>Option Name</span>
+                        <span class="nav-tool">Board Event</span>
                     </paper-icon-item>
 
                     <paper-icon-item class="iconItem" role="option" tabindex="0" aria-disabled="false">
                         <iron-icon class="grayIcon" icon="inbox" slot="item-icon"></iron-icon>
-                        <span>Option Name</span>
+                        <span class="font-thai">ตรวจสอบรายชื่อ</span>
                     </paper-icon-item>
 
                     <paper-icon-item class="iconItem" role="option" tabindex="0" aria-disabled="false">
@@ -87,6 +87,9 @@ class MyApp extends LitElement {
         `
     }
   
+    _nav1(e){
+        console.log("eiei",e)
+    }
 
 }
 
