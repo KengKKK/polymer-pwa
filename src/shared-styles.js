@@ -2,19 +2,7 @@ import { html } from '@polymer/lit-element';
 
 export const SharedStyles = html`
 <style>
-    @font-face {
-    font-family: 'rsuregular';
-    src: url('rsu_regular-webfont.eot');
-    src: url('rsu_regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('rsu_regular-webfont.woff2') format('woff2'),
-         url('rsu_regular-webfont.woff') format('woff'),
-         url('rsu_regular-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-.font-thai{
-    font-family: 'rsuregular';
-}
+
 
 h3 {
     display: block;

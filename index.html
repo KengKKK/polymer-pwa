@@ -13,7 +13,10 @@
         font-family: sans-serif;
         -webkit-font-smoothing: antialiased;
         background: #f1f1f1;
+        line-height: 1.5;
+        min-height: 100vh;
     }
+    
     </style>
     <!-- <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-auth.js"></script>
@@ -46,6 +49,22 @@
      </script>
     -->
 
+        <!-- Performance tip: hint to the browser to start the handshake for the fonts site -->
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+        <script>
+          // Load and register pre-caching Service Worker
+          if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+              navigator.serviceWorker.register('service-worker.js', {
+                scope: '/',
+              });
+            });
+          }
+    
+          // Redux assumes `process.env.NODE_ENV` exists in the ES module build.
+          // https://github.com/reactjs/redux/issues/2907
+          window.process = { env: { NODE_ENV: 'production' } };
+        </script>
    
 
     <!-- open api QR-Code -->
@@ -55,6 +74,7 @@
 <body>
 
     <my-app></my-app>
+    <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script type="module" src="/src/my-app.js"></script>
 
 </body>

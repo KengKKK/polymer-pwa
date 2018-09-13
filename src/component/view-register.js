@@ -5,7 +5,7 @@ import '@polymer/paper-icon-button/paper-icon-button.js';
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-icons/iron-icons.js';
 
-import './component/form-register.js'
+import './register/form-register.js'
 
 class MyRegister extends LitElement {
   

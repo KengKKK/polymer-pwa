@@ -1,0 +1,30 @@
+{
+  "/": {
+    "src/my-app.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "src/component/view-register.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+      "type": "script",
+      "weight": 1
+    }
+  },
+  "/view1": {
+    "src/my-app.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "src/my-view1.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+      "type": "script",
+      "weight": 1
+    }
+  }
+}
