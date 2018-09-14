@@ -7,7 +7,6 @@ import { installOfflineWatcher } from 'pwa-helpers/network.js';
 import { installRouter } from 'pwa-helpers/router.js';
 import { updateMetadata } from 'pwa-helpers/metadata.js';
 import { SharedStyles } from './shared-styles.js';
-import { menuIcon } from './my-icons.js';
 
 import { store } from '../src/store.js';
 
@@ -24,7 +23,6 @@ import '@vaadin/vaadin-button/vaadin-button.js';
 import {
     navigate,
     updateOffline,
-    updateDrawerState,
     updateLayout
   } from './action/app.js';
 
@@ -109,7 +107,6 @@ class MyApp extends connect(store)(LitElement) {
             <div class="bg-content">
                 <my-view1 class="page" active?="${_page === 'view1'}"></my-view1>
                 <view-register class="page" active?="${_page === 'viewRegister'}"></view-register>
-
             </div>
         </main>
 

@@ -17,10 +17,13 @@ export const SharedStyles = html`<style>
         padding: 10px 16px;
     }
 
-    .main-content {
-        padding-top: 64px;
-        min-height: 100vh;
+
+    .bg-content {
+        margin: 25px 16px 0px 0px;
+        background-color: #fafafa;
     }
+
+
 
     .blueHeader {
         font-weight: bold;
@@ -46,9 +49,10 @@ export const SharedStyles = html`<style>
     app-drawer-layout:not([narrow]) [drawer-toggle] {
         display: none;
     }
+
     drawer>a {
         text-decoration: none;
-        
+
         color: var(--app-drawer-text-color);
         line-height: 40px;
         padding: 0 24px;
@@ -57,6 +61,7 @@ export const SharedStyles = html`<style>
     drawer>a[selected] {
         color: var(--app-drawer-selected-color);
     }
+
     .menu-btn {
         background: none;
         border: none;
@@ -64,13 +69,9 @@ export const SharedStyles = html`<style>
         cursor: pointer;
         height: 44px;
         width: 44px;
-      }
+    }
 
     .iconItem {
         color: #666;
-    }
-
-    .bg-content {
-        background-color: #fafafa;
     }
 </style>`;
