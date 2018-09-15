@@ -1,4 +1,6 @@
-import { LitElement, html } from '@polymer/lit-element';
+import {  html } from '@polymer/lit-element';
+
+import { PageViewElement } from '../page-view-element.js';
 
 import '@vaadin/vaadin-button/vaadin-button.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
@@ -7,7 +9,7 @@ import '@polymer/iron-icons/iron-icons.js';
 
 import './register/form-register.js'
 
-class MyRegister extends LitElement {
+class MyRegister extends PageViewElement {
   
   static get properties() {
     return {

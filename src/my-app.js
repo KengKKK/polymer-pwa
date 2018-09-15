@@ -73,8 +73,7 @@ class MyApp extends connect(store)(LitElement) {
             <paper-icon-button icon="polymer"></paper-icon-button>
             <div main-title>Smart Register</div>
             <div class="account-menu">
-                <paper-icon-button icon="event"></paper-icon-button>
-                <paper-icon-button icon="subdirectory-arrow-right"></paper-icon-button>
+                <paper-icon-button icon="account-circle"></paper-icon-button>
             </div>
         </app-toolbar>
     </app-header>
@@ -86,7 +85,8 @@ class MyApp extends connect(store)(LitElement) {
             <h3>Menu</h3>
       
         
-            <a selected?="${_page === 'view1'}" href="/view1"><paper-icon-item class="iconItem" href="/view1" role="option" >
+            <a selected?="${_page === 'viewBoardevent'}" href="/viewBoardevent">
+                <paper-icon-item class="iconItem" role="option" >
                     <iron-icon class="grayIcon" icon="inbox" slot="item-icon"></iron-icon>
                     <span class="nav-tool">Board Event</span>
                 </paper-icon-item>
@@ -94,7 +94,7 @@ class MyApp extends connect(store)(LitElement) {
 
 
             <a selected?="${_page === 'viewRegister'}" href="/viewRegister">
-            <paper-icon-item class="iconItem" href="/view1" role="option" >
+                <paper-icon-item class="iconItem" role="option" >
                     <iron-icon class="grayIcon" icon="inbox" slot="item-icon"></iron-icon>
                     <span class="nav-tool">Check</span>
                 </paper-icon-item>
@@ -105,7 +105,7 @@ class MyApp extends connect(store)(LitElement) {
         <!-- Main content -->
         <main role="main" class="main-content">
             <div class="bg-content">
-                <my-view1 class="page" active?="${_page === 'view1'}"></my-view1>
+                <view-boardevent class="page" active?="${_page === 'viewBoardevent'}"></view-boardevent>
                 <view-register class="page" active?="${_page === 'viewRegister'}"></view-register>
             </div>
         </main>
