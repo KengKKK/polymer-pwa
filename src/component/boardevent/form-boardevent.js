@@ -14,7 +14,19 @@ class FormBoardEvent extends PolymerElement {
 
   static get template() {
     return html`
-    [[item]]
+    <style>
+      .addEvent 
+      {
+        position: absolute;
+        right: 24px;
+        top: 5px;
+      }
+    </style>
+
+    
+    <paper-icon-button icon="add" class="addEvent" alt="เพิ่มกิจกรรม"></paper-icon-button>
+  
+    <div style="padding-top:64px;">
             <vaadin-grid id="grid" aria-label="Basic Binding Example" items="[[item]]" on-click="_check">
             
               <vaadin-grid-selection-column auto-select>
@@ -48,6 +60,7 @@ class FormBoardEvent extends PolymerElement {
               </vaadin-grid-column> -->
         
             </vaadin-grid>
+      </div>
             `
   }
 
