@@ -1,6 +1,8 @@
 import { html } from '@polymer/lit-element';
 
 export const SharedStyles = html`<style>
+
+/* General */
     h3 {
         display: block;
         font-size: 1.17em;
@@ -17,61 +19,46 @@ export const SharedStyles = html`<style>
         padding: 10px 16px;
     }
 
-
+/* Custom */
     .bg-content {
         margin: 25px 16px 0px 0px;
         background-color: #fafafa;
     }
+    .iconItem {
+        color: #666;
+    }
+    .iconItem[selected]{
+        color: #231;
+    }
 
 
+/************************** App Layout *******************************/
 
+/* Header */
     .blueHeader {
         font-weight: bold;
         background-color: #4285f4;
         color: #fff;
     }
-
     .blueHeader paper-icon-button {
         --paper-icon-button-ink-color: white;
     }
-
-
+/* drawer */
     .app-drawer {
         --app-drawer-width: 240px;
         --app-drawer-scrim-background: rgba(250, 250, 100, 0.8);
-
         --app-drawer-content-container: {
             background-color: #fafafa;
         }
-
     }
-
     app-drawer-layout:not([narrow]) [drawer-toggle] {
         display: none;
     }
-
-    drawer>a {
+    app-drawer>a {
         text-decoration: none;
-
-        color: var(--app-drawer-text-color);
-        line-height: 40px;
-        padding: 0 24px;
+    }
+    .nav-tool>[selected] {
+        color: #fff;
     }
 
-    drawer>a[selected] {
-        color: var(--app-drawer-selected-color);
-    }
-
-    .menu-btn {
-        background: none;
-        border: none;
-        fill: var(--app-header-text-color);
-        cursor: pointer;
-        height: 44px;
-        width: 44px;
-    }
-
-    .iconItem {
-        color: #666;
-    }
 </style>`;

@@ -9,32 +9,28 @@ import '@vaadin/vaadin-item/vaadin-item.js';
 
 
 
-class FormRegister extends PolymerElement {
+class WalkWork extends PolymerElement {
     static get properties() {
         return {
             data: {
                 type: Array,
                 value: {}
-            },
-            edit: {
-                type: Boolean,
-                value: false
             }
         }
     }
 
     static get template() {
         return html`<style>
-    /* .column {
+    .column {
         padding-top: 24px;
         float: left;
         width: 50%;
-        } */
-        /* .column2{
-        padding:55px 0px 0px 18px;
+        }
+        .column2{
+        padding-top: 24px;
         float: left;
-        width: 40%;
-        } */
+        width: 20%;
+        }
     .row:after {
         content: "";
         display: table;
@@ -43,11 +39,12 @@ class FormRegister extends PolymerElement {
 </style>
 
 <div class="row">
-    <div class="column" style=" text-align:center;">
-        <vaadin-text-field required error-message="กรุณาใส่ชื่อ" label="ชื่อจริง (ระบุคำนำหน้าด้วย)" style="width:20em"
+   <div class="column" style=" text-align:center;">
+    <h3>เข้างานด้วยบัตรประชาชน (Walk-in)</h3>    
+        <vaadin-text-field required label="ชื่อ" style="width:20em"
             name="fname" on-input="_valueChanged" value="[[data.fname]]"></vaadin-text-field>
         <br>
-        <vaadin-text-field required error-message="กรุณาใส่นามสกุล" label="นามสกุล" style="width:20em" name="lname"
+        <vaadin-text-field required  label="นามสกุล" style="width:20em" name="lname"
             on-input="_valueChanged" value="[[data.lname]]"></vaadin-text-field>
         <br>
         <vaadin-dropdown-menu label="คณะ" style="width:20em">
@@ -73,21 +70,19 @@ class FormRegister extends PolymerElement {
         </vaadin-dropdown-menu>
         <br>
         <vaadin-text-field required label="สาขา/หน่วยงาน" style="width:20em" name="dep" on-input="_valueChanged" value="[[data.dep]]"></vaadin-text-field>
-        <br>
-        <vaadin-text-field required label="Email" style="width:20em" placeholder="ใส่อีเมล์เพื่อรับ QR-Code เข้างาน"
-            name="email" on-input="_valueChanged" value="[[data.email]]"></vaadin-text-field>
+
         <br>
 
         <vaadin-button theme="contrast primary" on-click="Submit">Submit</vaadin-button>
     </div>
 
-    <!-- <div class="column2" >
-        <input id="image" type="image" src="https://image.ibb.co/fOU4zp/google.png" on-click="ClicktoGmail"><br>
-    </div> -->
-</div>`
-    }
-    ClicktoGmail() {
-        console.log("Gamil ok")
+    <div class="column2" style=" text-align:center;">
+        <h3>เข้างานด้วย QR-Code</h3>
+        <vaadin-text-field  label="สแกน QR-Code" style="width:20em" name="lname"
+                on-input="_onChange" autofocus value="[[data.lname]]"></vaadin-text-field>
+    </div>
+</div>
+`
     }
     Submit() {
         if (this.edit == false) {
@@ -109,8 +104,10 @@ class FormRegister extends PolymerElement {
     }
     _valueChanged(e) {
         this.set('data.' + e.target.getAttribute("name"), e.target.value)
-
+    }
+    _onChange(e){
+        console.log(e.target.value)
     }
 }
-customElements.define('form-register', FormRegister);
+customElements.define('form-work', WalkWork);
 

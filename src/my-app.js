@@ -16,8 +16,11 @@ import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';
 import '@polymer/app-layout/app-header/app-header.js';
 import '@polymer/app-layout/app-toolbar/app-toolbar.js';
 
-import '@polymer/iron-selector/iron-selector.js'
 import '@vaadin/vaadin-button/vaadin-button.js';
+import '@polymer/paper-icon-button/paper-icon-button.js';
+import '@polymer/iron-icon/iron-icon.js';
+import '@polymer/iron-icons/iron-icons.js';
+import '@polymer/iron-selector/iron-selector.js'
 
 // These are the actions needed by this element.
 import {
@@ -26,7 +29,9 @@ import {
     updateLayout
   } from './action/app.js';
 
-import './component/view-register.js'
+// import './component/view-register.js'
+// import './component/view-boardevent.js'
+// import './component/view-work.js'
 
 class MyApp extends connect(store)(LitElement) {
 
@@ -70,9 +75,9 @@ class MyApp extends connect(store)(LitElement) {
 <app-header-layout>
     <app-header class="blueHeader" waterfall fixed slot="header">
         <app-toolbar top-item>
-            <paper-icon-button icon="polymer"></paper-icon-button>
+            <paper-icon-button icon="menu" on-click="${_ => this._toggle()}"></paper-icon-button>
             <div main-title>Smart Register</div>
-            <div class="account-menu">
+            KK<div class="account-menu"> 
                 <paper-icon-button icon="account-circle"></paper-icon-button>
             </div>
         </app-toolbar>
@@ -83,11 +88,17 @@ class MyApp extends connect(store)(LitElement) {
         <app-drawer slot="drawer" position="left" persistent class="app-drawer">
             <app-toolbar class="nav-tool"></app-toolbar>
             <h3>Menu</h3>
-      
-        
+    
+            <a selected?="${_page === 'viewWork'}" href="/viewWork">
+                <paper-icon-item class="iconItem" role="option" >
+                    <iron-icon  icon="inbox" slot="item-icon"></iron-icon>
+                    <span class="nav-tool">ลงทะเบียน (หน้างาน)</span>
+                </paper-icon-item>
+            </a>
+
             <a selected?="${_page === 'viewBoardevent'}" href="/viewBoardevent">
                 <paper-icon-item class="iconItem" role="option" >
-                    <iron-icon class="grayIcon" icon="inbox" slot="item-icon"></iron-icon>
+                    <iron-icon  icon="inbox" slot="item-icon"></iron-icon>
                     <span class="nav-tool">Board Event</span>
                 </paper-icon-item>
             </a>
@@ -95,16 +106,19 @@ class MyApp extends connect(store)(LitElement) {
 
             <a selected?="${_page === 'viewRegister'}" href="/viewRegister">
                 <paper-icon-item class="iconItem" role="option" >
-                    <iron-icon class="grayIcon" icon="inbox" slot="item-icon"></iron-icon>
-                    <span class="nav-tool">Check</span>
+                    <iron-icon icon="inbox" slot="item-icon"></iron-icon>
+                    <span class="nav-tool">ลงทะเบียน (เว็บไซต์)</span>
                 </paper-icon-item>
             </a>
+
+        <h3>Contact</h3>
 
         </app-drawer>
 
         <!-- Main content -->
         <main role="main" class="main-content">
             <div class="bg-content">
+                <view-work class="page" active?="${_page === 'viewWork'}"></view-work>
                 <view-boardevent class="page" active?="${_page === 'viewBoardevent'}"></view-boardevent>
                 <view-register class="page" active?="${_page === 'viewRegister'}"></view-register>
             </div>
@@ -114,8 +128,9 @@ class MyApp extends connect(store)(LitElement) {
 </app-header-layout>
 `
     }
-
-
+    _toggle(){
+        this.shadowRoot.querySelector('.app-drawer').toggle()
+    }
 
     _didRender(properties, changeList) {
         if ('_page' in changeList) {
