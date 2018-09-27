@@ -57,8 +57,8 @@ export const SharedStyles = html`<style>
     app-drawer>a {
         text-decoration: none;
     }
-    .nav-tool>[selected] {
-        color: #fff;
+    app-drawer>a[selected] .iconItem{   
+        background-color: #FF4CD8; 
     }
 
 </style>`;

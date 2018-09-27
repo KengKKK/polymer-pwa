@@ -13,8 +13,12 @@ class WalkWork extends PolymerElement {
     static get properties() {
         return {
             data: {
-                type: Array,
+                type: Object,
                 value: {}
+            },
+            edit: {
+                type : Boolean,
+                value : false
             }
         }
     }
@@ -40,7 +44,7 @@ class WalkWork extends PolymerElement {
 
 <div class="row">
    <div class="column" style=" text-align:center;">
-    <h3>เข้างานด้วยบัตรประชาชน (Walk-in)</h3>    
+    <h3> (Walk-in)</h3>    
         <vaadin-text-field required label="ชื่อ" style="width:20em"
             name="fname" on-input="_valueChanged" value="[[data.fname]]"></vaadin-text-field>
         <br>
@@ -85,8 +89,9 @@ class WalkWork extends PolymerElement {
 `
     }
     Submit() {
+
         if (this.edit == false) {
-            if (Object.keys(this.data).length < 1) {
+            if (Object.keys(this.data).length  < 1 ) {
                 console.log(Object.keys(this.data).length)
             }
             else {

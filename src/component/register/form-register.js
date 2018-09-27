@@ -13,7 +13,7 @@ class FormRegister extends PolymerElement {
     static get properties() {
         return {
             data: {
-                type: Array,
+                type: Object,
                 value: {}
             },
             edit: {
