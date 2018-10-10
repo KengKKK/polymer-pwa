@@ -7,7 +7,7 @@ export const CLOSE_SNACKBAR = 'CLOSE_SNACKBAR';
 
 export const navigate = (path) => (dispatch) => {
   // Extract the page name from path.
-  const page = path === '/' ? 'viewWork' : path.slice(1);
+  const page = path === '/' ? 'Work' : path.slice(1);
 
   // Any other info you might want to extract from the path (like page type),
   // you can do here
@@ -20,23 +20,23 @@ export const navigate = (path) => (dispatch) => {
 const loadPage = (page) => (dispatch) => {
   switch(page) {
 
-    case 'viewWork':
-      import('../component/view-work.js');
+    case 'Work':
+      import('../pages/work.js');
       break;
 
-    case 'viewBoardevent':
-      import('../component/view-boardevent.js').then((module) => {
+    case 'Boardevent':
+      import('../pages/boardevent.js').then((module) => {
 // console.log("test")
       });
       break;
       
-    case 'viewRegister':
-      import('../component/view-register.js');
+    case 'Register':
+      import('../pages/register.js');
       break;
 
     // default:
     //   page = 'view404';
-    //   import('../components/my-view404.js');
+    //   import('../pagess/myview-404.js');
   }
 
   dispatch(updatePage(page));

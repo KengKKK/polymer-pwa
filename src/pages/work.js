@@ -1,8 +1,8 @@
 import { html } from '@polymer/lit-element';
 
-import { PageViewElement } from '../page-view-element.js';
+import { PageViewElement } from '../page-view-element';
 
-import './work/form-work.js'
+import '../component/work/form-work.js'
 
 class MyWork extends PageViewElement {
 
@@ -19,7 +19,7 @@ class MyWork extends PageViewElement {
 
     _render() {
         return html`
-        <h1>view work </h1>
+        
             <form-work></form-work>
     `;
     }

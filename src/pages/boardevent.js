@@ -1,8 +1,9 @@
 import { html } from '@polymer/lit-element';
-import { PageViewElement } from '../page-view-element.js';
+import { PageViewElement } from '../page-view-element';
 
 import '../component/boardevent/form-boardevent.js'
 import '../component/boardevent/dialog-board.js'
+
 class MyBoardEvent extends PageViewElement {
   _render() {
     return html`

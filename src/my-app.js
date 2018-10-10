@@ -29,9 +29,6 @@ import {
     updateLayout
   } from './action/app.js';
 
-// import './component/view-register.js'
-// import './component/view-boardevent.js'
-// import './component/view-work.js'
 
 class MyApp extends connect(store)(LitElement) {
 
@@ -89,14 +86,14 @@ class MyApp extends connect(store)(LitElement) {
             <app-toolbar class="nav-tool"></app-toolbar>
             <h3>Menu</h3>
     
-            <a selected?="${_page === 'viewWork'}" href="/viewWork">
+            <a selected?="${_page === 'Work'}" href="/Work">
                 <paper-icon-item class="iconItem" role="option" >
                     <iron-icon  icon="inbox" slot="item-icon"></iron-icon>
                     <span class="nav-tool">ลงทะเบียน (หน้างาน)</span>
                 </paper-icon-item>
             </a>
 
-            <a selected?="${_page === 'viewBoardevent'}" href="/viewBoardevent">
+            <a selected?="${_page === 'Boardevent'}" href="/Boardevent">
                 <paper-icon-item class="iconItem" role="option" >
                     <iron-icon  icon="inbox" slot="item-icon"></iron-icon>
                     <span class="nav-tool">Board Event</span>
@@ -104,7 +101,7 @@ class MyApp extends connect(store)(LitElement) {
             </a>
 
 
-            <a selected?="${_page === 'viewRegister'}" href="/viewRegister">
+            <a selected?="${_page === 'Register'}" href="/Register">
                 <paper-icon-item class="iconItem" role="option" >
                     <iron-icon icon="inbox" slot="item-icon"></iron-icon>
                     <span class="nav-tool">ลงทะเบียน (เว็บไซต์)</span>
@@ -118,9 +115,9 @@ class MyApp extends connect(store)(LitElement) {
         <!-- Main content -->
         <main role="main" class="main-content">
             <div class="bg-content">
-                <view-work class="page" active?="${_page === 'viewWork'}"></view-work>
-                <view-boardevent class="page" active?="${_page === 'viewBoardevent'}"></view-boardevent>
-                <view-register class="page" active?="${_page === 'viewRegister'}"></view-register>
+                <view-work class="page" active?="${_page === 'Work'}"></view-work>
+                <view-boardevent class="page" active?="${_page === 'Boardevent'}"></view-boardevent>
+                <view-register class="page" active?="${_page === 'Register'}"></view-register>
             </div>
         </main>
 

@@ -1,9 +1,9 @@
 import { html } from '@polymer/lit-element';
 
-import { PageViewElement } from '../page-view-element.js';
+import { PageViewElement } from '../page-view-element';
 
 
-import './register/form-register.js'
+import '../component/register/form-register.js'
 
 class MyRegister extends PageViewElement {
 
