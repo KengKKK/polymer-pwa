@@ -8,6 +8,7 @@ class MyBoardEvent extends PageViewElement {
   _render() {
     return html`
 
+
         <style>
       .addEvent 
       {

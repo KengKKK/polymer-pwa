@@ -4,6 +4,7 @@ import { PageViewElement } from '../page-view-element';
 
 
 import '../component/register/form-register.js'
+import '../component/register/qrcode-register.js'
 
 class MyRegister extends PageViewElement {
 
@@ -20,7 +21,9 @@ class MyRegister extends PageViewElement {
 
   _render() {
     return html`
+          
           <form-register></form-register>
+          <qrcode-register></qrcode-register>
     `;
   }
 }

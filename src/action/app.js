@@ -7,7 +7,7 @@ export const CLOSE_SNACKBAR = 'CLOSE_SNACKBAR';
 
 export const navigate = (path) => (dispatch) => {
   // Extract the page name from path.
-  const page = path === '/' ? 'Work' : path.slice(1);
+  const page = path === '/' ? 'BoardEvent' : path.slice(1);
 
   // Any other info you might want to extract from the path (like page type),
   // you can do here
@@ -24,9 +24,9 @@ const loadPage = (page) => (dispatch) => {
       import('../pages/work.js');
       break;
 
-    case 'Boardevent':
-      import('../pages/boardevent.js').then((module) => {
-// console.log("test")
+    case 'BoardEvent':
+      import('../pages/boardevent.js').then((module) => { 
+        // console.log("test")
       });
       break;
       
@@ -34,9 +34,13 @@ const loadPage = (page) => (dispatch) => {
       import('../pages/register.js');
       break;
 
-    // default:
-    //   page = 'view404';
-    //   import('../pagess/myview-404.js');
+    case 'BoardPeople':
+      import('../pages/boardPeople.js');
+      break;
+
+    default:
+      page = 'view404';
+      import('../pagess/myview-404.js');
   }
 
   dispatch(updatePage(page));

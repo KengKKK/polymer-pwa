@@ -22,6 +22,7 @@ import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-icons/iron-icons.js';
 import '@polymer/iron-selector/iron-selector.js'
 
+
 // These are the actions needed by this element.
 import {
     navigate,
@@ -73,9 +74,9 @@ class MyApp extends connect(store)(LitElement) {
     <app-header class="blueHeader" waterfall fixed slot="header">
         <app-toolbar top-item>
             <paper-icon-button icon="menu" on-click="${_ => this._toggle()}"></paper-icon-button>
-            <div main-title>Smart Register</div>
-            KK<div class="account-menu"> 
-                <paper-icon-button icon="account-circle"></paper-icon-button>
+            <div main-title >Smart Register</div>
+            KKK<div class="account-menu"> 
+                <paper-icon-button icon="account-circle" href="/"></paper-icon-button>
             </div>
         </app-toolbar>
     </app-header>
@@ -93,10 +94,10 @@ class MyApp extends connect(store)(LitElement) {
                 </paper-icon-item>
             </a>
 
-            <a selected?="${_page === 'Boardevent'}" href="/Boardevent">
+            <a selected?="${_page === 'BoardEvent'}" href="/BoardEvent">
                 <paper-icon-item class="iconItem" role="option" >
                     <iron-icon  icon="inbox" slot="item-icon"></iron-icon>
-                    <span class="nav-tool">Board Event</span>
+                    <span class="nav-tool">บอร์ดกิจกรรม</span>
                 </paper-icon-item>
             </a>
 
@@ -108,6 +109,13 @@ class MyApp extends connect(store)(LitElement) {
                 </paper-icon-item>
             </a>
 
+            <a selected?="${_page === 'BoardPeople'}" href="/BoardPeople">
+                <paper-icon-item class="iconItem" role="option" >
+                    <iron-icon icon="inbox" slot="item-icon"></iron-icon>
+                    <span class="nav-tool">รายชื่อผู้ลงทะเบียน</span>
+                </paper-icon-item>
+            </a>
+
         <h3>Contact</h3>
 
         </app-drawer>
@@ -116,7 +124,8 @@ class MyApp extends connect(store)(LitElement) {
         <main role="main" class="main-content">
             <div class="bg-content">
                 <view-work class="page" active?="${_page === 'Work'}"></view-work>
-                <view-boardevent class="page" active?="${_page === 'Boardevent'}"></view-boardevent>
+                <view-boardevent class="page" active?="${_page === 'BoardEvent'}"></view-boardevent>
+                <view-boardpeople class="page" active?="${_page === 'BoardPeople'}"></view-boardpeople>
                 <view-register class="page" active?="${_page === 'Register'}"></view-register>
             </div>
         </main>

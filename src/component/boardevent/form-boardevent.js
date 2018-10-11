@@ -1,86 +1,104 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 
-import '@vaadin/vaadin-grid/vaadin-grid-selection-column.js'
-import '@vaadin/vaadin-grid/vaadin-grid.js'
-import '@vaadin/vaadin-button/vaadin-button.js'
+
+import '@polymer/paper-card/paper-card.js';
+import '@polymer/paper-button/paper-button.js';
 
 
 class FormBoardEvent extends PolymerElement {
-  static get properties() {
-    return {
-      item: {
-        type: Array,
-        value: [""]
-      },
-    }
-  }
-
-
   static get template() {
+    
     return html`
         <style>
-      .details {
-        display: flex;
-        font-size: 14px;
-        padding-left: 70px;
-      }
+ 
+      .column {
+    float: left;
+    width: 45%;
+    padding: 10px;
+    top: 5px;
+    padding-left: 50px;
+    /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+paper-button.green {
+      background-color: var(--paper-green-500);
+      color: white;
+    }
       </style>
 
-            <vaadin-grid id="grid" aria-label="Basic Binding Example" items="[[item]]">
-            
-              <vaadin-grid-selection-column auto-select>
-              </vaadin-grid-selection-column>
+<div class="row">
+      <div class="column">
+        <paper-card image="/images/src/1.jpg" style="width:100%; height:50px"> 
+          <div class="card-content">
+            <div class="cafe-header">ชื่องาน ...........
+              <div class="cafe-location cafe-light">
+                <iron-icon icon="communication:location-on"></iron-icon>
+              </div>
+            </div>
+            <div class="cafe-rating">
+              <iron-icon class="star" icon="star"></iron-icon>
+              <iron-icon class="star" icon="star"></iron-icon>
+              <iron-icon class="star" icon="star"></iron-icon>
+              <iron-icon class="star" icon="star"></iron-icon>
+              <iron-icon class="star" icon="star"></iron-icon>
+            </div>
+            <p>$ ตึก 52 คณะครุศาสตร์อุตสาหกรรม</p>
+            <p class="cafe-light">Small plates, salads &amp; sandwiches in an intimate setting.</p>
+          </div>
+          <div class="card-actions">
+            <div class="horizontal justified">
+              <paper-icon-button icon="icons:event"></paper-icon-button>
+              <span>09.00 - 16.00 PM</span>
+              <span>วันที่ 16 มกราคม 2561</span>
+              <paper-button raised class="green" ><iron-icon icon="favorite"></iron-icon>ดูรายละเอียด</paper-button>
+            </div>
+          </div>
+        </paper-card>
+    </div>
 
-                    <template class="row-details">
-                        <div class="details">
-                          <!-- <img src="[[item.picture.large]]"> -->
-                          <p>
-                            ผู้รับผิดชอบ : เก่ง เกรียงไกร<br>
-                            ติดต่อ : 123-456-789
-                            <small>[[item.email]]</small>
-                          </p>
-                        </div>
-                    </template>
+              <div class="column">
+        <paper-card image="/images/src/2.jpg" style="width:100%; height:50px"> 
+          <div class="card-content">
+            <div class="cafe-header">ชื่องาน ...........
+              <div class="cafe-location cafe-light">
+                <iron-icon icon="communication:location-on"></iron-icon>
+              </div>
+            </div>
+            <div class="cafe-rating">
+              <iron-icon class="star" icon="star"></iron-icon>
+              <iron-icon class="star" icon="star"></iron-icon>
+              <iron-icon class="star" icon="star"></iron-icon>
+              <iron-icon class="star" icon="star"></iron-icon>
+              <iron-icon class="star" icon="star"></iron-icon>
+            </div>
+            <p>$ อาคารนวมินทรราชินี</p>
+            <p class="cafe-light">Small plates, salads &amp; sandwiches in an intimate setting.</p>
+          </div>
+          <div class="card-actions">
+            <div class="horizontal justified">
+              <paper-icon-button icon="icons:event"></paper-icon-button>
+              <span>09.00 - 16.00 PM</span>
+              <span>วันที่ 16 มกราคม 2561</span>
+              <paper-button raised class="green"><iron-icon icon="favorite"></iron-icon>ดูรายละเอียด</paper-button>
+            </div>
+          </div>
+        </paper-card>
+    </div>
+</div>
 
- 
-                <vaadin-grid-column>
-                    <template class="header">ชื่อกิจกรรม</template>
-                    <template>[[item.fname]]ประชุมเรื่อง .......</template>
-                    <template class="footer">ชื่อกิจกรรม</template>
-                </vaadin-grid-column>
+  
 
-                <vaadin-grid-column>
-                    <template class="header">สถานที่</template>
-                    <template>[[item.ename]]ตึก 52 คณะครุศาสตร์อุตสาหกรรม</template>
-                    <template class="footer">สถานที่</template>
-                </vaadin-grid-column>
-                
-                <vaadin-grid-column>
-                    <template class="header">วันที่</template>
-                    <template>[[item.ename]]32 ธันวาคม 2561</template>
-                    <template class="footer">วันที่</template>
-                </vaadin-grid-column>
+    
+    
 
-                <vaadin-grid-column width="100px">
-                <template class="header"></template>
-                    <template>
-                    <vaadin-checkbox aria-label$="Show Details for [[item.name.first]]" checked="{{detailsOpened}}">ดูรายละเอียด</vaadin-checkbox>
-                    </template>
-              </vaadin-grid-column> 
-                
-              <!-- <vaadin-grid-column width="5em">
-                <template>
-                  <div>
-                    <vaadin-button type-data="del" index-data$="[[item.ID]]" disabled$="[[!selected]]">ลบ</vaadin-button>
-                    <vaadin-button type-data="edit" index-data$="[[item.ID]]" disabled$="[[!selected]]">แก้ไข</vaadin-button>
-                  </div>
-                </template>
-              </vaadin-grid-column> -->
-        
-            </vaadin-grid>
-            `
+    `;
   }
-
 
 
 }

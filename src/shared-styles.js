@@ -56,9 +56,10 @@ export const SharedStyles = html`<style>
     }
     app-drawer>a {
         text-decoration: none;
+        color: red;
     }
     app-drawer>a[selected] .iconItem{   
-        background-color: #FF4CD8; 
+        background-color: #C9C1BF; 
     }
 
 </style>`;

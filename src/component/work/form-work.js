@@ -19,27 +19,31 @@ class WalkWork extends PolymerElement {
             edit: {
                 type : Boolean,
                 value : false
+            },
+            qr: {
+                type: String,
+                value: ""
             }
         }
     }
 
     static get template() {
         return html`<style>
-    .column {
-        padding-top: 24px;
-        float: left;
-        width: 50%;
-        }
-        .column2{
-        padding-top: 24px;
-        float: left;
-        width: 20%;
-        }
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-        }
+      .column {
+    float: left;
+    width: 45%;
+    padding: 10px;
+    top: 5px;
+    padding-left: 50px;
+    /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 </style>
 
 <div class="row">
@@ -50,7 +54,7 @@ class WalkWork extends PolymerElement {
         <br>
         <vaadin-text-field required  label="นามสกุล" style="width:20em" name="lname"
             on-input="_valueChanged" value="[[data.lname]]"></vaadin-text-field>
-        <br>
+        <!-- <br>
         <vaadin-dropdown-menu label="คณะ" style="width:20em">
             <template>
                 <vaadin-list-box on-click="dropboxValue1">
@@ -71,7 +75,7 @@ class WalkWork extends PolymerElement {
                     <vaadin-item>พัฒนาธุรกิจและอุตสาหกรรม</vaadin-item>
                 </vaadin-list-box>
             </template>
-        </vaadin-dropdown-menu>
+        </vaadin-dropdown-menu> -->
         <br>
         <vaadin-text-field required label="สาขา/หน่วยงาน" style="width:20em" name="dep" on-input="_valueChanged" value="[[data.dep]]"></vaadin-text-field>
 
@@ -80,10 +84,10 @@ class WalkWork extends PolymerElement {
         <vaadin-button theme="contrast primary" on-click="Submit">Submit</vaadin-button>
     </div>
 
-    <div class="column2" style=" text-align:center;">
+    <div class="column" style=" text-align:center;">
         <h3>เข้างานด้วย QR-Code</h3>
-        <vaadin-text-field  label="สแกน QR-Code" style="width:20em" name="lname"
-                on-input="_onChange" autofocus value="[[data.lname]]"></vaadin-text-field>
+        <vaadin-text-field  label="สแกน QR-Code" style="width:20em" 
+                on-change="_onChange" autofocus value="[[this.qr]]"></vaadin-text-field>
     </div>
 </div>
 `
@@ -96,7 +100,9 @@ class WalkWork extends PolymerElement {
             }
             else {
                 this.dispatchEvent(new CustomEvent('addData', { detail: this.data }))
-                console.log(this.data)
+                //  console.log(this.data)
+                 var myJSON = JSON.stringify(this.data);
+                alert("ลงทะเบียนสำเร็จ : " + myJSON )
             }
         }
         else if (this.edit == true) {
@@ -111,7 +117,11 @@ class WalkWork extends PolymerElement {
         this.set('data.' + e.target.getAttribute("name"), e.target.value)
     }
     _onChange(e){
-        console.log(e.target.value)
+        // console.log(e.currentTarget.value)
+        this.qr = e.target.value
+        // this.dispatchEvent(new CustomEvent('DataQR'), { detail : this.qr})
+
+        alert(this.qr)
     }
 }
 customElements.define('form-work', WalkWork);
